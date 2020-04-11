@@ -1,0 +1,123 @@
+# Map tools
+
+## Foliage Creator
+---------------
+
+> The foliage Creator script makes it easy to paint different foliage types.
+Creating Deko foliage can be very hard. This tool helps and generates the
+necessary foliage types. In combination with the Map tool.
+>
+>
+**Field Dimensions with Bitmap** has even more features available. With (\*) everything related to this map tool is marked after the following.**
+
+## General Info
+------------
+
+**There are three different. Types available:
+
+-   Grass, forest and grass decoration.  
+    In grass and grass decoration, grass is always planted as a substrate. With
+    the two types you can then define different deko foliage’s.**
+
+## Map preparation
+---------------
+
+1.  First, copy the fruitDensity.grle file to the maps/map folder (or other
+    folders) of the map. The file can be found on Github at the script.
+
+2.  Open the map in Notepad++ or another text editor and look for *\<Files \>*
+    include: *→*  
+    *\<File fileId="206000000" filename="map/fruitDensity.png"/\>*
+
+3.  An info layer must be added as the next. Searches here for InfoLayer. These
+    are located in the Terrain Transform Group. Add the following entry to the
+    InfoLayers lines¨ found: *→*  
+    *\<InfoLayer name="fruitDensity" fileId="206000000" numChannels="8"/\>*
+
+4.  The map can now be saved and opened in the Giants Editor.
+
+## Script setting
+--------------
+
+1.  Creates a new script with scripts. Enter a name and click Create.
+
+2.  Now delete the comments in the script and copy the script from Github.  
+    <https://github.com/Ls-Modcompany/FS19_GlobalCompany_GE_FoliageCreator>
+
+3.  Now some settings and changes in various lines of the script have to be
+    made:
+
+    -   **Line 9:** *pathFruitDensityGrle →* Here the path to the file
+        *fruitDensity.grle* must be given.
+
+    -   **Line 10:** *pathFieldDimensions →* Here the path to the file
+        *fieldDimensions.grle must be* specified. (\*)
+
+    -   **Line 13:** *bitsFruitDensityGdm →* Number of bits of FruitGdm. A
+        Change to “no” if the standard value is not maintained.
+
+    -   **Line 14:** *bitsFruitDensityGrle →* Number of bits of the grle. No
+        change.
+
+    -   **Line 15:** *bitsFieldDimensionsGrle →* Number of bits of the field
+        dimensions grle. Do not change if the standard value is not maintained.
+
+    -   In **line 17-36** there are the available Id’s. *→* Id’s must be
+        assigned.
+
+    -   **Line 40**: *bit grass state →* State for grass (19 wa ' re State4 and
+        thus the waxed grass)
+
+    -   **Line 40:** *bit grass states →* Array with Id's. It can be set which
+        de- co foliage should be planted on "grass".
+
+    -   **Line 43:** *bit forest states →* Array with Id's. It can be set which
+        deco foliage should be planted on "forest floor".
+
+    -   **Line 46:** *bit grassDeco states →* Array with Id's. It is possible to
+        set which deco foliage should be planted on "grass".
+
+    -   **Line 43:** *bit grass factor →* density of foliage. The higher the
+        more desto mehr Foliage is created.
+
+    -   **Line 46:** *bit forest factor →* Density of Foliage. The higher the
+        more Foliage is created
+
+    -   **Line 49:** *bit grass Deco factor →* Density of Foliage. The higher
+        the higher the more foliage is created
+
+    -   **Line 51:** *maxFactor →* Here the next factor of the above must be.
+
+4.  **Save the script**.
+
+## Layer painting
+--------------
+
+Now the infolayer can be selected in the Info Layer Painting window. The values
+have the following meaning:
+
+-   (Bit 0) → Grass
+
+-   (Bit 1) → Forest
+
+-   (Bit 0 & 1) → Grass Decoration
+
+## Script 
+-------
+
+After the layers have been drawn, the current scene must first be saved in the
+Giants Editor. Only then can the script be executed.
+
+(When saving the layers in the file, which is then loaded when the script is
+run). If the script is executed twice in a row, you will also receive double the
+result!
+
+## Fields extension
+----------------
+
+If you add the script FieldDimensions with Bitmap, you still have to specify the
+path to this GRLE file in line 10. This prevents Foliages from being drawn on a
+field.
+
+>   Tip: The layers can then be drawn into the fields, which gives you a better
+>   result and is also much faster, because you don't have to draw it exactly!
